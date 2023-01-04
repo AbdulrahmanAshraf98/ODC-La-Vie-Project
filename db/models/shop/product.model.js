@@ -21,7 +21,7 @@ const productSchema = mongoose.Schema(
 					ref: "Review",
 				},
 			],
-            select:false
+			default: [],
 		},
 		shop: {
 			type: mongoose.Schema.Types.ObjectID,
@@ -35,13 +35,13 @@ const productSchema = mongoose.Schema(
 );
 productSchema.virtual("ProductReviews", {
 	ref: "Review",
-	foreignField: "product",
+	foreignField: "belongTo",
 	localField: "_id",
 });
 productSchema.pre(/^find/, function (next) {
 	this.populate({
 		path: "ProductReviews",
-		select: "_id review user createdAt",
+		select: "_id content rating user createdAt",
 	});
 	next();
 });

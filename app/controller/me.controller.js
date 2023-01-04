@@ -18,7 +18,6 @@ class MeController{
 		const validPassword =await validatePassword(req.body.password,user.password);
 		if(!validPassword)throw new Error("invalid password");
 		user.password = req.body.newPassword;
-		console.log(user.password);
 		await user.save();
 		await sendEmail({email:user.email,subject:"Your password Is changed",text:`Your password Is changed`});
 		Helper.resHandler(res, 200, true, req.user, "user password updated");

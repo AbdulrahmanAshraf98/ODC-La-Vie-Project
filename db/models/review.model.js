@@ -1,43 +1,52 @@
-const   mongoose  = require("mongoose");
+const mongoose = require("mongoose");
 
-const reviewSchema= mongoose.Schema({
-    review:{
-        type:String,
-        required:[true,"Review can not be empty"]
-    },
-    rating:{
-        type:Number,
-        min:1,
-        max:5,
-        default:1
-    },
-    createAt:{
-        type:Date,
-        default:Date.now,
-    },
-    user:{
-        type:mongoose.Schema.Types.ObjectID,
-        ref:"User",
-        required:[true,"review must have a author"]
-    },
-    product:{
-        type:mongoose.Schema.Types.ObjectID,
-        ref:"Product",
-        required:[true,"review must have a Product id "]
-    }
+const reviewSchema = mongoose.Schema(
+	{
+		content: {
+			type: String,
+			required: [true, "contant can not be empty"],
+		},
+		rating: {
+			type: Number,
+			min: 1,
+			max: 5,
+			default: 1,
+		},
 
-},{
- 
+		user: {
+			type: mongoose.Schema.Types.ObjectID,
+			ref: "User",
+			required: [true, "review must have a author"],
+		},
+		belongTo: {
+			type: mongoose.Schema.Types.ObjectID,
+			required: [true, "review must belongTo product or post "],
+		},
+		belongToType: {
+			type: String,
+			enum: ["product", "post"],
+		},
+		createAt: {
+			type: Date,
+			default: Date.now,
+		},
+		updateAt: {
+			type: Date,
+		},
+	},
+	{
+		toJSON: { virutals: true },
+		toOBJECT: { virutals: true },
+	},
+);
+
+reviewSchema.pre(/^find/, function (next) {
+	this.populate({
+		path: "user",
+		select: "fName lName",
+	});
+
+	next();
 });
-
-reviewSchema.pre(/^find/,function(next){
-  
-    this.populate({
-        path:"user",
-        select:"fName lName"
-    })
-
-    next();
-})
-const Review=mongoose.model("Review",reviewSchema);
-module.exports=Review
+const ReviewsPost = mongoose.model("Review", reviewSchema);
+module.exports = ReviewsPost;

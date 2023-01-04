@@ -10,22 +10,29 @@ const shopSchema = mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectID,
 			required: [true, "shop must have a owner"],
 		},
-		products: [
-			{
-				type: mongoose.Schema.Types.ObjectID,
-				ref: "Product",
-			},
-		],
+		products: {
+			type: [
+				{
+					type: mongoose.Schema.Types.ObjectID,
+					ref: "Product",
+				},
+			],
+			default: [],
+		},
 	},
 	{
-        toJSON:{virtuals:true},
-        toOBJECT:{virtuals:true}
+		toJSON: { virtuals: true },
+		toOBJECT: { virtuals: true },
 	},
 );
 shopSchema.virtual("ShopProducts", {
 	ref: "Product",
 	foreignField: "shop",
-	localField: "_id"
+	localField: "_id",
+});
+shopSchema.pre(/^find/, function (next) {
+	this.populate("ShopProducts");
+	next();
 });
 
 const shop = mongoose.model("Shop", shopSchema);

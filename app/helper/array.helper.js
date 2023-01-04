@@ -1,5 +1,5 @@
 const checkValidArray = (array) => {
-	if (array === null || array.length === 0) return false;
+	if (array === null || !array.length) return false;
 	return true;
 };
 class ArrayHelper {
@@ -21,6 +21,7 @@ class ArrayHelper {
 		return element ? element : null;
 	};
 	static deleteObjectFromArray = (array, key, value) => {
+		console.log(array);
 		const validArray = checkValidArray(array);
 		if (!validArray || !key || !value) return [];
 		const newArray = array.filter((item) => item[key] != value);
