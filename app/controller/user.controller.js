@@ -39,15 +39,15 @@ class UserController {
 		Helper.resHandler(res, 200, true, null, "user deleted");
 	});
 	static changeToBushinessAccount = Helper.catchAsyncError(async (req, res) => {
-		const business = await Role.find({ type: "business" });
-		const user = await ModelHelper.update(
+		const business = await ModelHelper.findOne(Role, { type: "business" });
+		const user = await ModelHelper.updateOne(
 			UserModel,
-			{ _id: req.params.id },
+			{ _id: req.user._id },
 			{ role: business._id },
 		);
 		if (!user) throw new Error("Invalid user Id");
 		await user.populate("role");
-		Helper.resHandler(res, 200, true, null, "user role updated");
+		Helper.resHandler(res, 200, true, user, "user role updated");
 	});
 
 	// static register = async (req, res) => {

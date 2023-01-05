@@ -1,0 +1,1217 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ODC",
+		"_postman_id": "58fc7347-62a3-db5d-8556-e4118e083eae",
+		"description": "first please run init file to create admin role and employee and bussiness",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"description": "",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"url": "{{baseurl}}user/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IwMmNjMDFiYzExZThhM2I2MmY2YzAiLCJpYXQiOjE2NzI0OTAxODd9.d5XzzxONcX3y5oK0Qf85xVNYHB35xVz2JgzeCjYUAYw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "get all system user must provied a valied token for employee and  admin"
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleUser",
+					"request": {
+						"url": "{{baseurl}}user/63ac1f9595c95108f990200b",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FjMWY5NTk1Yzk1MTA4Zjk5MDIwMGIiLCJpYXQiOjE2NzI0ODY3MjB9.tvFBOI0veviGVsduFADtfVkAxLg9BiaUV2gqXplw2gI",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "get single user user must provied a valied token for employee and  admin \nand put in url a valid user id"
+					},
+					"response": []
+				},
+				{
+					"name": "addUser",
+					"request": {
+						"url": "{{baseurl}}user/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E3Yjk5NzUxZGIyOTVhMDVlNzAyZjgiLCJpYXQiOjE2NzE5Mzg5NTh9.hzSN5Q0R3rVv0KnoihGOPHh_Du_I6xTyvmk5a0mhbzk",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fName\": \"abdulrhman\",\n\t\"lname\": \"ashraf\",\n\t\"email\": \"admin134@gmail.com\",\n\t\"password\": \"12345678\",\n\t\"role\":{\n\t\t\"name\":\"admin\"\n\t}\n}"
+						},
+						"description": "add user user must provied a valied token for employee and admin to craate a user"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"url": "{{baseurl}}user/63a7c64441e226120436b978",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E3YjkzNWU3NTMwZmZkNDg5Y2VjMWYiLCJpYXQiOjE2NzIxMzQ5NzZ9.-3HozgSZgaHM4YkrxX4hvG-Fknq1w4UueBhIJd-gsSo",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fName\": \"abdulrhman\",\n\t\"lname\": \"ashraf1555\"\n}"
+						},
+						"description": "add user user must provied a valied token for  admin with permission to delete  user"
+					},
+					"response": []
+				},
+				{
+					"name": "editUser",
+					"request": {
+						"url": "{{baseurl}}user/63aac3faf42d09ba3538dc3d",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E3Yjk5NzUxZGIyOTVhMDVlNzAyZjgiLCJpYXQiOjE2NzIxMzUxMjJ9.jvW9DWGnxF4XSVAmqDSkcd6E17mZYwSq6R_P03vtq48",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fName\": \"abdulrhman\",\n\t\"lname\": \"ashraf1\"\n}"
+						},
+						"description": "add user user must provied a valied token for  employee or admin with permission to update  user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shop",
+			"description": "",
+			"item": [
+				{
+					"name": "getAllShopProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b5431de161fa8128e47caa",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"description": "get all shop product user must provied a valied token for owner or  admin"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllShop",
+					"request": {
+						"url": "{{baseurl}}shop/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "get all shops"
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleShop",
+					"request": {
+						"url": "{{baseurl}}shop/63b5431de161fa8128e47caa",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "get single shop  user must provied a valied token and valid shopId"
+					},
+					"response": []
+				},
+				{
+					"name": "getSIngleProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b406cfacee71cf247b4f0a/product/63b5434da71c4e9a662db53f/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "get product  based on shop  user must provied a valied token  and provide shopId and ProductId"
+					},
+					"response": []
+				},
+				{
+					"name": "getReviewForProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b3e10350c86bb0cd0a1580/product/63b40a4d885ca7bb575631ad/review",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "get all  product review based on shopId and productId user must provied a valied token and provide shopId and ProductId"
+					},
+					"response": []
+				},
+				{
+					"name": "createShop",
+					"request": {
+						"url": "{{baseurl}}shop/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"test1\",\n\t\"owner\":\"63b2d18023f9e22e6dcdc1a3\"\n}"
+						},
+						"description": "create shop  user must provied a valied token as business or employee or  admin"
+					},
+					"response": []
+				},
+				{
+					"name": "createProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b5431de161fa8128e47caa/product",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"product1\",\n\t\"category\":\"plant\",\n\t\"price\":20\n}"
+						},
+						"description": "create product for  must provied a valied token as business or employee or admin  and provide shopId"
+					},
+					"response": []
+				},
+				{
+					"name": "createReviewForProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b3e10350c86bb0cd0a1580/product/63b57259dffd767791b6bc23/review/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"bad\"\n}"
+						},
+						"description": "create review for product based on shopId and productId user must provied a valied token and provide shopId and ProductId"
+					},
+					"response": []
+				},
+				{
+					"name": "createReviewForProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b406cfacee71cf247b4f0a/product/63b40a4d885ca7bb575631ad/review",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"review\":\"good product\",\n\t\"rating\":1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateShop",
+					"request": {
+						"url": "{{baseurl}}shop/63b5431de161fa8128e47caa",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"test2\"\n}"
+						},
+						"description": "update shop  must provied a valied token   owner for shop and valid shopId"
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b3e10350c86bb0cd0a1580/product/63b3e3b09af6a1e13893508a",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"price\":40\n}"
+						},
+						"description": "update product for shop must provied a valied token owner for shop and valid shopId and productID"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteShop",
+					"request": {
+						"url": "{{baseurl}}shop/63b5431de161fa8128e47caa",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fName\": \"abdulrhman\",\n\t\"lname\": \"ashraf1555\"\n}"
+						},
+						"description": "delete shop  must provied a valied token owner for shop and valid shopId  will deleted shop and product based on shop and review for this product"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAllShopProduct",
+					"request": {
+						"url": "{{baseurl}}shop/63b5431de161fa8128e47caa/product/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI4MTI2MzB9.dMMDEwL5cJ1uqp2WUgtWCuPpCpfRtFMygIh8dqbfCVI",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "update all shop products must provied a valied token owner or admin  and valid shopId"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"url": "{{baseurl}}user/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"12345678\"\n}"
+						},
+						"description": "login must provide valid email and password"
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"url": "{{baseurl}}user/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fName\":\"Abdulrhman\",\n\t\"lName\":\"Ashraf\",\n\t\"email\":\"abdoashraf1818@gmail.com\",\n\t\"password\":\"Ab@123456\",\n\t\"gender\":\"male\"\n}"
+						},
+						"description": "login must provide fName,lName valid email and strong  password contian a character lower case and one upper case and contain a 1 symbole at least and 6 numbers"
+					},
+					"response": []
+				},
+				{
+					"name": "activeUser",
+					"request": {
+						"url": "{{baseurl}}user/63b2d18023f9e22e6dcdc1a3/active\n",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "end point to active email after regsiter"
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"url": "{{baseurl}}user/forgetPassword",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"abdoashraf1818@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"url": "{{baseurl}}user/resetPassword/b938220569ded4fc07bcbc250ee90dbffdae46b849c5fcb67243b234df5ce723",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"password\":\"Ab@12345678\"\n}"
+						},
+						"description": "end point for reset the password take a resetToken as params"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"description": "",
+			"item": [
+				{
+					"name": "getSingleRole",
+					"request": {
+						"url": "{{baseurl}}role/admin",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IwMmNjMDFiYzExZThhM2I2MmY2YzAiLCJpYXQiOjE2NzI0OTAxODd9.d5XzzxONcX3y5oK0Qf85xVNYHB35xVz2JgzeCjYUAYw",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "get single role by name must be a admin"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllRole",
+					"request": {
+						"url": "{{baseurl}}role/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IwMmNjMDFiYzExZThhM2I2MmY2YzAiLCJpYXQiOjE2NzI0OTAxODd9.d5XzzxONcX3y5oK0Qf85xVNYHB35xVz2JgzeCjYUAYw",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"urls\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"url\": \"/api/v1/user\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\t\"url\": \"/api/v1/role\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n}"
+						},
+						"description": "get all role by name must be a admin"
+					},
+					"response": []
+				},
+				{
+					"name": "createRole",
+					"request": {
+						"url": "{{baseurl}}role/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MjI0Mzl9.PK3bOwbutUGygE20mJKQr7apt7oPAcDFReoLrm2futE",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"urls\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"url\": \"/api/v1/user\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\t\"url\": \"/api/v1/role\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n}"
+						},
+						"description": "create role by name must be a admin"
+					},
+					"response": []
+				},
+				{
+					"name": "updateRole",
+					"request": {
+						"url": "{{baseurl}}role/",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MjI0Mzl9.PK3bOwbutUGygE20mJKQr7apt7oPAcDFReoLrm2futE",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"urls\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"url\": \"/api/v1/user\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\t\"url\": \"/api/v1/role\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n}"
+						},
+						"description": "update role by name must be a admin"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRole",
+					"request": {
+						"url": "{{baseurl}}role/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MjI0Mzl9.PK3bOwbutUGygE20mJKQr7apt7oPAcDFReoLrm2futE",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"urls\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"url\": \"/api/v1/user\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\t\"url\": \"/api/v1/role\",\n\t\t\t\t\t\t\"methods\": {\n\t\t\t\t\t\t\t\"POST\": \"POST\",\n\t\t\t\t\t\t\t\"PATCH\": \"PATCH\",\n\t\t\t\t\t\t\t\"GET\":\"GET\",\n\t\t\t\t\t\t\t\"DELETE\":\"DELETE\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n}"
+						},
+						"description": "delete role by name must be a admin"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "me",
+			"description": "",
+			"item": [
+				{
+					"name": "getCurrentUser",
+					"request": {
+						"url": "{{baseurl}}me",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI4MTI2MzB9.dMMDEwL5cJ1uqp2WUgtWCuPpCpfRtFMygIh8dqbfCVI",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "get current User"
+					},
+					"response": []
+				},
+				{
+					"name": "updateMe",
+					"request": {
+						"url": "{{baseurl}}me",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyYjk3YzBkMzg4NjgwY2Q0OWRkNmYiLCJpYXQiOjE2NzI2NTc0MDJ9._7GcMILv_gsvmWOkEDou9KLt-nyzno0DXoXR3KcEfUg",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fName\":\"abdulrhmanashraf\"\n}"
+						},
+						"description": "update current User"
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"url": "{{baseurl}}me/updatePassword",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI4MTI2MzB9.dMMDEwL5cJ1uqp2WUgtWCuPpCpfRtFMygIh8dqbfCVI",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\":\"Ab@12345\",\n\t\"newPassword\":\"Ab@12345678\"\n}"
+						},
+						"description": "update current  User password"
+					},
+					"response": []
+				},
+				{
+					"name": "changeToBushinessAccount",
+					"request": {
+						"url": "{{baseurl}}me/change-to-bushiness-account",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MzI4MDZ9.pZZjZ2_HZddj6D7TAh0tVzdJoRrFDYvCZyhmbZ2WTng",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fName\":\"abdulrhmanashraf\"\n}"
+						},
+						"description": "change account type for current User"
+					},
+					"response": []
+				},
+				{
+					"name": "changeProfileImage",
+					"request": {
+						"url": "{{baseurl}}me/changeProfileImage",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MzI4MDZ9.pZZjZ2_HZddj6D7TAh0tVzdJoRrFDYvCZyhmbZ2WTng",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"description": "",
+									"type": "file",
+									"src": "4.png"
+								},
+								{
+									"key": "x",
+									"value": "\"1\"",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"description": "",
+			"item": [
+				{
+					"name": "createReview",
+					"request": {
+						"url": "{{baseurl}}review/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI4MTI2MzB9.dMMDEwL5cJ1uqp2WUgtWCuPpCpfRtFMygIh8dqbfCVI",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"easy\",\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "editReview",
+					"request": {
+						"url": "{{baseurl}}review/63b5568ced819d808c1aed69",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI4MTI2MzB9.dMMDEwL5cJ1uqp2WUgtWCuPpCpfRtFMygIh8dqbfCVI",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"easy\",\n\t\"rating\":5,\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleReview",
+					"request": {
+						"url": "{{baseurl}}review/63b5568ced819d808c1aed69",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI4MTI2MzB9.dMMDEwL5cJ1uqp2WUgtWCuPpCpfRtFMygIh8dqbfCVI",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"easy\",\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReview",
+					"request": {
+						"url": "{{baseurl}}review/63b543a079bb81fd4a10a792",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI4MTI2MzB9.dMMDEwL5cJ1uqp2WUgtWCuPpCpfRtFMygIh8dqbfCVI",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"description": "",
+			"item": [
+				{
+					"name": "getAllProducts",
+					"request": {
+						"url": "{{baseurl}}product/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MzI4MDZ9.pZZjZ2_HZddj6D7TAh0tVzdJoRrFDYvCZyhmbZ2WTng",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "createProduct",
+					"request": {
+						"url": "{{baseurl}}product/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MzI4MDZ9.pZZjZ2_HZddj6D7TAh0tVzdJoRrFDYvCZyhmbZ2WTng",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"url": "{{baseurl}}product/63b6f835dcd85258b374fcc8",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MzI4MDZ9.pZZjZ2_HZddj6D7TAh0tVzdJoRrFDYvCZyhmbZ2WTng",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"product4\",\n\t\"category\":\"plant\",\n\t\"price\":20,\n\t\"shopId\":\"63b67ee1b14d78bc6e46a0e4\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"url": "{{baseurl}}product/63b6f835dcd85258b374fcc8",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2YmY3ZDYwNTUyOTQyZGUwY2Q2MDYiLCJpYXQiOjE2NzI5MzI4MDZ9.pZZjZ2_HZddj6D7TAh0tVzdJoRrFDYvCZyhmbZ2WTng",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"product4\",\n\t\"category\":\"plant\",\n\t\"price\":20,\n\t\"shopId\":\"63b67ee1b14d78bc6e46a0e4\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"description": "",
+			"item": [
+				{
+					"name": "createPost",
+					"request": {
+						"url": "{{baseurl}}post/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"post1\",\n\t\"category\":\"seeds\",\n\t\"content\":\"test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getAllPosts",
+					"request": {
+						"url": "{{baseurl}}post/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deletePost",
+					"request": {
+						"url": "{{baseurl}}post/63b57b00c7ea96e1a378b51c",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"hasOwn\":true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getSInglePost",
+					"request": {
+						"url": "{{baseurl}}post/63b57b00c7ea96e1a378b51c",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updatePost",
+					"request": {
+						"url": "{{baseurl}}post/63b57b00c7ea96e1a378b51c",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IyZDE4MDIzZjllMjJlNmRjZGMxYTMiLCJpYXQiOjE2NzI3MzI0NDJ9.ckVn8AYGRXRe2XrvO0f6kJ0oOvPJ4fUwLubtepRhC_Y",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search",
+			"description": "",
+			"item": [
+				{
+					"name": "search for all product and posts and shops",
+					"request": {
+						"url": {
+							"raw": "{{baseurl}}search/all/?name=product2",
+							"host": [
+								"{{baseurl}}search"
+							],
+							"path": [
+								"all",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "product2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "search for all product ",
+					"request": {
+						"url": {
+							"raw": "{{baseurl}}search/product/?name=product2",
+							"host": [
+								"{{baseurl}}search"
+							],
+							"path": [
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "product2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "search for all posts ",
+					"request": {
+						"url": {
+							"raw": "{{baseurl}}search/post/?name=product2",
+							"host": [
+								"{{baseurl}}search"
+							],
+							"path": [
+								"post",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "product2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "search for all shop ",
+					"request": {
+						"url": {
+							"raw": "{{baseurl}}search/shop/?name=product2",
+							"host": [
+								"{{baseurl}}search"
+							],
+							"path": [
+								"shop",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "product2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

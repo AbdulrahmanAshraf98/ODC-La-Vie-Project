@@ -37,18 +37,18 @@ const checkPermission = Helper.catchAsyncError(async (req, res, next) => {
 				}
 			});
 		}
-		if (requestQueryKey.length > 0) {
-			requestQueryKey.forEach((queryKey) => {
-				if (item.query[queryKey]) {
-					requestUrl = requestUrl.replace(
-						`${queryKey}=${req.query[queryKey]}`,
-						"",
-					);
-				}
-			});
+		// if (requestQueryKey.length > 0) {
+		// 	requestQueryKey.forEach((queryKey) => {
+		// 		if (item.query[queryKey]) {
+		// 			requestUrl = requestUrl.replace(
+		// 				`${queryKey}=${req.query[queryKey]}`,
+		// 				"",
+		// 			);
+		// 		}
+		// 	});
 
-			requestUrl = requestUrl.replace("?", "");
-		}
+		// 	requestUrl = requestUrl.replace("?", "");
+		// }
 
 		return item.url == requestUrl;
 	});
