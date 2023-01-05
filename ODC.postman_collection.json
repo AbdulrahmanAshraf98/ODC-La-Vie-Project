@@ -475,7 +475,7 @@
 						"method": "GET",
 						"header": [],
 						"body": {},
-						"description": "end point to active email after regsiter"
+						"description": "end point to active email after regsiter sended with email"
 					},
 					"response": []
 				},
@@ -813,7 +813,7 @@
 							"mode": "raw",
 							"raw": "{\n\t\"content\":\"easy\",\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
 						},
-						"description": ""
+						"description": "create review based on belongTo product id or post id and belongToType  product or post"
 					},
 					"response": []
 				},
@@ -838,7 +838,7 @@
 							"mode": "raw",
 							"raw": "{\n\t\"content\":\"easy\",\n\t\"rating\":5,\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
 						},
-						"description": ""
+						"description": "edit review base on ReviewId"
 					},
 					"response": []
 				},
@@ -863,7 +863,7 @@
 							"mode": "raw",
 							"raw": "{\n\t\"content\":\"easy\",\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
 						},
-						"description": ""
+						"description": "get review baed on reviewId"
 					},
 					"response": []
 				},
@@ -888,7 +888,7 @@
 							"mode": "raw",
 							"raw": "{\n\t\"belongTo\":\"63b5434da71c4e9a662db53f\",\n\t\"belongToType\":\"product\"\n}"
 						},
-						"description": ""
+						"description": "delete review based on belongTo product id or post id and belongToType product or post"
 					},
 					"response": []
 				}
