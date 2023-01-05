@@ -1,0 +1,384 @@
+[
+	{
+		"name": "admin",
+		"type": "admin",
+		"urls": [
+			{
+				"url": "/api/v1/role/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"roleName": "roleName"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/user/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"id": "id"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/shop/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/shop/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId",
+					"productId": "productId"
+				},
+				"query": {}
+			},
+
+			{
+				"url": "/api/v1/shop/product/review",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId",
+					"productId": "productId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"productId": "productId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"productId": "productId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/review/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/post/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"postId": "postId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/post/review/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"postId": "postId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/cart/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"cartId": "cartId"
+				},
+				"query": {}
+			}
+		]
+	},
+	{
+		"name": "employee",
+		"type": "employee",
+		"urls": [
+			{
+				"url": "/api/v1/role/",
+				"methods": {
+					"GET": "GET"
+				},
+				"params": {
+					"roleName": "roleName"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/user/",
+				"methods": {
+					"GET": "GET",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"id": "id"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/shop/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/shop/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId",
+					"productId": "productId"
+				},
+				"query": {}
+			},
+
+			{
+				"url": "/api/v1/shop/product/review",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId",
+					"productId": "productId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"productId": "productId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"productId": "productId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/review/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/post/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"postId": "postId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/post/review/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"postId": "postId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/cart/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"cartId": "cartId"
+				},
+				"query": {}
+			}
+		]
+	},
+	{
+		"name": "business",
+		"type": "business",
+		"urls": [
+			{
+				"url": "/api/v1/shop/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/shop/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId",
+					"productId": "productId"
+				},
+				"query": {}
+			},
+
+			{
+				"url": "/api/v1/shop/product/review",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"shopId": "shopId",
+					"productId": "productId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"productId": "productId"
+				},
+				"query": {}
+			},
+			{
+				"url": "/api/v1/product/",
+				"methods": {
+					"GET": "GET",
+					"DELETE": "DELETE",
+					"PATCH": "PATCH",
+					"POST": "POST"
+				},
+				"params": {
+					"productId": "productId",
+					"reviewId": "reviewId"
+				},
+				"query": {}
+			}
+		]
+	}
+]

@@ -1,9 +1,16 @@
+const Role = require("../../db/models/role.model");
 const UserModel = require("../../db/models/user.model");
+const ApiFeatures = require("../helper/api.feature");
 const Helper = require("../helper/helper");
 const ModelHelper = require("../helper/model.helper");
 class UserController {
 	static allUsers = Helper.catchAsyncError(async (req, res, next) => {
-		const users = await ModelHelper.findAll(UserModel);
+		const apiFeatures = new ApiFeatures(UserModel.find(), req.query)
+			.filter()
+			.pagination()
+			.selectedFields()
+			.sort();
+		const users = await apiFeatures.query;
 		Helper.resHandler(res, 200, true, users, "users fetched");
 	});
 
@@ -31,7 +38,17 @@ class UserController {
 		await ModelHelper.deleteOne(UserModel, { _id: req.params.id });
 		Helper.resHandler(res, 200, true, null, "user deleted");
 	});
-
+	static changeToBushinessAccount = Helper.catchAsyncError(async (req, res) => {
+		const business = await Role.find({ type: "business" });
+		const user = await ModelHelper.update(
+			UserModel,
+			{ _id: req.params.id },
+			{ role: business._id },
+		);
+		if (!user) throw new Error("Invalid user Id");
+		await user.populate("role");
+		Helper.resHandler(res, 200, true, null, "user role updated");
+	});
 
 	// static register = async (req, res) => {
 	// 	try {

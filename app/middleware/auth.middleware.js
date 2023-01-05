@@ -12,22 +12,23 @@ const auth = Helper.catchAsyncError(async (req, res, next) => {
 		"tokens.token": token,
 	});
 	if (!userData) throw new Error("unauthorized");
+	await userData.populate("role");
 	req.user = userData;
 	req.token = token;
 	next();
 });
 const restrictTo = (...roles) =>
 	Helper.catchAsyncError(async (req, res, next) => {
-		if (!roles.includes(req.user.role.type)) throw new Error("unauthorized");
+		if (!roles.includes(req.user.role?.type)) throw new Error("unauthorized");
 		next();
 	});
-
 
 const checkPermission = Helper.catchAsyncError(async (req, res, next) => {
 	let validUrl;
 	let requestUrl = req.originalUrl;
 	const requestParamsKey = Object.keys(req.params);
 	const requestQueryKey = Object.keys(req.query);
+
 	validUrl = req.user.role.urls.find((item) => {
 		if (requestParamsKey.length > 0) {
 			requestParamsKey.forEach((paramKey) => {
@@ -45,14 +46,29 @@ const checkPermission = Helper.catchAsyncError(async (req, res, next) => {
 					);
 				}
 			});
+
 			requestUrl = requestUrl.replace("?", "");
 		}
 
 		return item.url == requestUrl;
 	});
+
 	if (!validUrl) throw new Error("unauthorized");
 	if (!validUrl.methods[req.method]) throw new Error("unauthorized");
+
 	next();
 });
 
-module.exports = { auth, restrictTo, checkPermission };
+const hasOwn = (userKey, requestKey) =>
+	Helper.catchAsyncError(async (req, res, next) => {
+		if (req.user.role.type != "admin") {
+			const requestKeyValue = Helper.getIdFromRequest(req, requestKey);
+			const hasOwn = req.user[userKey].find(
+				(item) => item.toString() == requestKeyValue,
+			);
+			if (!hasOwn) throw new Error("unauthorized");
+		}
+		next();
+	});
+
+module.exports = { auth, restrictTo, checkPermission, hasOwn };

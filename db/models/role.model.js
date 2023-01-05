@@ -13,9 +13,9 @@ const roleScheme = mongoose.Schema({
 		type: String,
 		trim: true,
 		lowercase: true,
-		enum: ["admin", "employee", "customer"],
-		default: "customer",
-		required: [true, "role name is required"],
+		enum: ["admin", "business", "employee", "regular"],
+		default: "regular",
+		required: [true, "role type is required"],
 	},
 	urls: [
 		{

@@ -7,13 +7,14 @@ const ValidateHelper = require("../../app/helper/validate.helper");
 const userSchema = mongoose.Schema(
 	{
 		fName: {
-			type: String,	
+			type: String,
 			lowercase: true,
 			minLength: 5,
 			maxLength: 20,
 			required: true,
 			validate: function () {
-				if (!ValidateHelper.validateName(this.fName)) throw new Error("Invalid first name must be without any spaces ");
+				if (!ValidateHelper.validateName(this.fName))
+					throw new Error("Invalid first name must be without any spaces ");
 			},
 		},
 		lName: {
@@ -23,7 +24,8 @@ const userSchema = mongoose.Schema(
 			maxLength: 20,
 			required: true,
 			validate: function () {
-				if (!ValidateHelper.validateName(this.lName)) throw new Error("Invalid last name must be without any spaces ");
+				if (!ValidateHelper.validateName(this.lName))
+					throw new Error("Invalid last name must be without any spaces ");
 			},
 		},
 		age: {
@@ -36,7 +38,8 @@ const userSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 			validate: function () {
-				if (!ValidateHelper.validateEmail(this.email)) throw new Error("Invalid email");
+				if (!ValidateHelper.validateEmail(this.email))
+					throw new Error("Invalid email");
 			},
 		},
 		password: {
@@ -45,7 +48,8 @@ const userSchema = mongoose.Schema(
 			trim: true,
 			required: true,
 			validate: function () {
-				if (!ValidateHelper.validatePassword(this.password)) throw new Error("Invalid email");
+				if (!ValidateHelper.validatePassword(this.password))
+					throw new Error("Invalid password");
 			},
 		},
 		Phone: [
@@ -57,9 +61,8 @@ const userSchema = mongoose.Schema(
 				},
 			},
 		],
-		education:{
-			type:String,
-
+		education: {
+			type: String,
 		},
 		gender: {
 			type: String,
@@ -70,20 +73,26 @@ const userSchema = mongoose.Schema(
 		dOfBirth: {
 			type: Date,
 		},
-		profileImage:String,
+		profileImage: String,
 		tokens: [
 			{
 				token: { type: String, required: true },
 			},
 		],
-		isActive:{
-			type:Boolean,
-			default:false,
+		isActive: {
+			type: Boolean,
+			default: false,
 		},
 		passwordChangeAt: Date,
 		passwordResetToken: String,
 		passwordResetExpires: Date,
-		bookmark:[],
+
+		bookmark: [],
+		shops: [],
+		role: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Role",
+		},
 	},
 	{
 		timestamps: true,

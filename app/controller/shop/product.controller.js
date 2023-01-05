@@ -38,11 +38,12 @@ class ProductController {
 		Helper.resHandler(res, 200, true, product, "product fetched successfully");
 	});
 	static updateProduct = Helper.catchAsyncError(async (req, res, next) => {
+		const shopId = Helper.getIdFromRequest(req, "shopId");
 		const productId = Helper.getIdFromRequest(req, "productId");
 		if (!productId) if (!productId) throw new Error("must have a productId id");
 		const product = await ModelHelper.updateOne(
 			productModel,
-			{ _id: productId },
+			{ _id: productId, shop: shopId },
 			req.body,
 		);
 		if (!product) throw new Error("No product found");

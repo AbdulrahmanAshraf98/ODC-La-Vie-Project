@@ -7,27 +7,57 @@ const {
 	checkPermission,
 	auth,
 	restrictTo,
+	hasOwn,
 } = require("../app/middleware/auth.middleware");
 
 router.use(auth);
 router
 	.route("/")
 	.get(ShopController.getAllShops)
-	.post(ShopController.createShop);
+	.post(
+		restrictTo("business", "employee", "admin"),
+		checkPermission,
+		ShopController.createShop,
+	);
 router
 	.route("/:shopId")
 	.get(ShopController.getSingleShop)
-	.patch(ShopController.updateShop)
-	.delete(ShopController.deleteShop);
+	.patch(
+		restrictTo("business"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ShopController.updateShop,
+	)
+	.delete(
+		restrictTo("business", "admin"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ShopController.deleteShop,
+	);
 router
 	.route("/:shopId/product/")
 	.get(ProductController.getShopProducts)
-	.post(ProductController.createProduct)
-	.delete(ProductController.deleteAllShopProducts);
+	.post(
+		restrictTo("business"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ProductController.createProduct,
+	)
+	.delete(
+		restrictTo("business", "admin"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ProductController.deleteAllShopProducts,
+	);
 router
 	.route("/:shopId/product/:productId")
 	.get(ProductController.getSingleProduct)
-	.patch(ProductController.updateProduct)
+	.patch(
+		restrictTo("business"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ProductController.updateProduct,
+	)
 	.delete(ProductController.deleteProduct);
 
 router

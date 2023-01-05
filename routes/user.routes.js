@@ -10,21 +10,19 @@ const {
 router.route("/login").post(AuthController.login);
 router.route("/register").post(AuthController.register);
 router.route("/:id/active").get(AuthController.activeEmail);
-router.post('/forgetPassword', AuthController.forgetPassword);
-router.post('/resetPassword/:token', AuthController.resetPassword);
+router.post("/forgetPassword", AuthController.forgetPassword);
+router.post("/resetPassword/:token", AuthController.resetPassword);
 router.use(auth);
-// router.use(restrictTo("admin", "employee"));
+
+router.use(restrictTo("admin", "employee"));
 router
 	.route("/")
-	.get( UserController.allUsers)
-	.post( UserController.addUser);
-
+	.get(checkPermission, UserController.allUsers)
+	.post(checkPermission, UserController.addUser);
 router
 	.route("/:id")
-	.get( UserController.getSingleUser)
-	.patch( UserController.editUser)
-	.delete( UserController.deleteUser);
+	.get(checkPermission, UserController.getSingleUser)
+	.patch(checkPermission, UserController.editUser)
+	.delete(restrictTo("admin"), checkPermission, UserController.deleteUser);
 
-
-	
 module.exports = router;

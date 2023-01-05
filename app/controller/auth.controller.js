@@ -30,13 +30,7 @@ class AuthController {
 			);
 			if(!user.isActive)throw new Error("you must active your email ")
 			const token = await user.generateToken();
-			Helper.resHandler(
-				res,
-				200,
-				true,
-				{ user, token },
-				"user added successfully",
-			);
+			Helper.SendUserToken(user, token, "user added successfully", req, res);
 
 	});
 
@@ -66,20 +60,13 @@ class AuthController {
 	});
 
 	//email 
-	static activeEmail=Helper.catchAsyncError( async (req, res,next) => {		
-		const user = await ModelHelper.findOne(UserModel,{_id:req.params.id}) ;
-		if(user.isActive)throw new Error("email actived ")
-		user.isActive=true;
+	static activeEmail=Helper.catchAsyncError( async (req, res,next) => {
+		const user = await ModelHelper.findOne(UserModel, { _id: req.params.id });
+		if (user.isActive) throw new Error("email actived ");
+		user.isActive = true;
 		await user.save();
-		console.log(user.isActive)
-		Helper.resHandler(
-			res,
-			200,
-			true,
-			{ user },
-			"user active  successfully",
-		);
 
+		Helper.resHandler(res, 200, true, { user }, "user active  successfully");
 	});
 	static resendActiveEmail=Helper.catchAsyncError( async(req,res,next)=>{
 		const user = await ModelHelper.findOne(UserModel,req.body.email) ;
@@ -97,14 +84,7 @@ class AuthController {
 		const user = await ModelHelper.findOne(UserModel,{email:req.body.email}) ;
 		
 		if (!user) return next(new Error('there no user with this email '));
-		const resetToken= await user.generateResetToken()
-		// const resetToken = crypto.randomBytes(32).toString('hex');
-		// user.passwordResetToken = crypto
-	  	// .createHash('sha256')
-	  	// .update(resetToken)
-	 	//  .digest('hex');
-	  	// user.passwordResetExpires = Date.now() + 10 * 60 * 1000;
-		// await user.save();
+		const resetToken = await user.generateResetToken();
 		const resetUrl = `${req.protocol}://${req.get(
 			'host'
 		  )}/api/v1/user/resetPassword/${resetToken}`;
@@ -124,13 +104,7 @@ class AuthController {
 			user.save();
 			throw new Error(error);
 		}
-		Helper.resHandler(
-			res,
-			200,
-			true,
-			{ user },
-			"Token send to email",
-		);
+		Helper.resHandler(res, 200, true, { user }, "resetToken send to email");
 	})
 	static resetPassword=Helper.catchAsyncError( async(req,res,next)=>{
 		const hashToken = crypto.createHash('sha256').update(req.params.token).digest('hex');

@@ -36,7 +36,9 @@ class ShopController {
 
 	static createShop = Helper.catchAsyncError(async (req, res, next) => {
 		const shop = await ModelHelper.createOne(shopModel, req.body);
-		Helper.resHandler(res, 200, true, shop, "shops added successfully");
+		req.user.shops.push(shop._id);
+		await req.user.save();
+		Helper.resHandler(res, 200, true, shop, "shop created successfully");
 	});
 	static updateShop = Helper.catchAsyncError(async (req, res, next) => {
 		const shopId = Helper.getIdFromRequest(req, "shopId");
@@ -44,7 +46,7 @@ class ShopController {
 
 		const shop = await ModelHelper.updateOne(
 			shopModel,
-			{ _id: shopId },
+			{ _id: shopId, owner: req.user._id },
 			req.body,
 		);
 		if (!shop) throw new Error("No shop found");
@@ -54,7 +56,6 @@ class ShopController {
 		const shopId = Helper.getIdFromRequest(req, "shopId");
 		if (!shopId) throw new Error("must have a shopId id");
 		const shop = await ModelHelper.findOne(shopModel, { _id: shopId });
-		console.log(shop);
 		if (!shop) throw new Error("shop Not Found");
 		await shop.products.forEach(async (product) => {
 			await product.reviews.forEach(async (review) => {

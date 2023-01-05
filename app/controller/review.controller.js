@@ -60,7 +60,7 @@ class ReviewController {
 			await post.save();
 		}
 
-		Helper.resHandler(res, 200, true, review, "review added successfully");
+		Helper.resHandler(res, 200, true, review, "review created successfully");
 	});
 	static editReview = Helper.catchAsyncError(async (req, res, next) => {
 		const review = await ModelHelper.updateOne(
@@ -73,9 +73,15 @@ class ReviewController {
 
 	static deleteReview = Helper.catchAsyncError(async (req, res, next) => {
 		let belongTo = getBelongTo(req);
+		if (!req.body.user) {
+			throw new Error("must have a user id");
+		}
+		await ModelHelper.deleteOne(reviewModel, {
+			_id: req.params.reviewId,
+			user: req.body.use,
+		});
 
 		if (req.params.productId || req.body.belongToType == "product") {
-			console.log(belongTo);
 			const product = await ModelHelper.findOne(productModel, {
 				id: belongTo,
 			});
@@ -96,9 +102,7 @@ class ReviewController {
 			);
 			await product.save();
 		}
-		const review = await ModelHelper.deleteOne(reviewModel, {
-			_id: req.params.reviewId,
-		});
+
 
 		Helper.resHandler(res, 200, true, null, "review removed successfully");
 	});

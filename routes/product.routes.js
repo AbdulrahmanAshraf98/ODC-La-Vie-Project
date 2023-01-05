@@ -5,19 +5,35 @@ const {
 	checkPermission,
 	auth,
 	restrictTo,
+	hasOwn,
 } = require("../app/middleware/auth.middleware");
 
 router.use(auth);
 
 router
 	.route("/")
-	.get(ProductController.getShopProducts)
-	.post(ProductController.createProduct)
-	.delete(ProductController.deleteAllShopProducts);
+	.get(ProductController.getAllProducts)
+	.post(
+		restrictTo("business", "admin"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ProductController.createProduct,
+	)
+	.delete(
+		restrictTo("business", "admin"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ProductController.deleteAllShopProducts,
+	);
 router
 	.route("/:productId")
 	.get(ProductController.getSingleProduct)
-	.patch(ProductController.updateProduct)
+	.patch(
+		restrictTo("business"),
+		checkPermission,
+		hasOwn("shops", "shopId"),
+		ProductController.updateProduct,
+	)
 	.delete(ProductController.deleteProduct);
 
 router
