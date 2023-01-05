@@ -13,7 +13,13 @@ class AuthController {
 	static register=Helper.catchAsyncError( async(req,res,next)=>{
 		if (req.body.role) delete req.body.role;
 		const user = await ModelHelper.createOne(UserModel,req.body) ;
-		await sendEmail({email:user.email,subject:"active Email",text:`/${user._id}/active`})
+		await sendEmail({
+			email: user.email,
+			subject: "active Email",
+			text: `${req.protocol}://${req.get("host")}/api/v1/user/${
+				user._id
+			}/active`,
+		});
 		Helper.resHandler(
 			res,
 			200,
@@ -70,7 +76,13 @@ class AuthController {
 	});
 	static resendActiveEmail=Helper.catchAsyncError( async(req,res,next)=>{
 		const user = await ModelHelper.findOne(UserModel,req.body.email) ;
-		await sendEmail({email:user.email,subject:"active Email",text:`/${user._id}/active`})
+		await sendEmail({
+			email: user.email,
+			subject: "active Email",
+			text: `${req.protocol}://${req.get("host")}/api/v1/user/${
+				user._id
+			}/active`,
+		});
 		Helper.resHandler(
 			res,
 			200,
