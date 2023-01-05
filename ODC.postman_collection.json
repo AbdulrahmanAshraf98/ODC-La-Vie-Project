@@ -911,7 +911,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "get all products"
 					},
 					"response": []
 				},
@@ -928,7 +928,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "create product must provide a shopID"
 					},
 					"response": []
 				},
